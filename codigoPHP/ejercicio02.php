@@ -8,22 +8,37 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
     header('HTTP/1.0 401 Unauthorized');
     echo 'Inicio de sesión cancelado';
     exit;
-    
 } else { //Si ha introducido un usuario y un password, lo comparamos con la base de datos.
     try {
         $miDB = new PDO(dsn, usuario, contra); //Conexion a la BD
-
         //Query para comparar mi bd con lo introducido
-        $consulta = "SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario='$_SERVER[PHP_AUTH_USER]' AND T01_Password='($_SERVER[PHP_AUTH_PW])'";
+        $consulta1 = "SELECT T01_CodUsuario,T01_Password FROM T01_Usuario WHERE T01_CodUsuario='$_SERVER[PHP_AUTH_USER]'";
+        $consulta2 = "UPDATE T01_Usuario SET T01_NumConexiones=T01_NumConexiones+1,T01_FechaHoraUltimaConexion=now() WHERE T01_CodUsuario='$_SERVER[PHP_AUTH_USER]]'";
+        $consulta3 = "SELECT * FROM T01_Usuario WHERE T01_CodUsuario='$_SERVER[PHP_AUTH_USER]]'";
 
-        //ejecutamos el query
-        $resultadoConsulta = $miDB->query($consulta);
+        $consulta1Exe = $miDB->prepare($consulta1);
+        $consulta1Exe->execute();
+        $oUsuario = $consulta1Exe->fetchObject();
 
-        //Si al ejecutar el query, no nos devuelve nada (0 rows), pediremos un nuevo inicio de Sesion.
-        if ($resultadoConsulta->rowCount() == 0) {
-            header('WWW-Authenticate: Basic realm="Contenido Restringido"');
-            header('HTTP/1.0 401 Unauthorized');
-            exit;
+        if (is_object($oUsuario) && $oUsuario->T01_Password = hash('sha256', ($_SERVER['PHP_AUTH_USER'] . $_SERVER['PHP_AUTH_PW']))) {
+            $user = $_SERVER['PHP_AUTH_USER'];
+            $pass = $_SERVER['PHP_AUTH_PW'];
+
+            $consulta3Exe = $miDB->prepare($consulta3);
+            $consulta3Exe->execute();
+            $oUsuario = $consulta3Exe->fetchObject();
+
+            if (is_object($oUsuario)) {
+                echo "Usuario: $_SERVER[PHP_AUTH_USER] <br />";
+                echo "Contraseña: $_SERVER[PHP_AUT_PW] <br />";
+                if ($oUsuario->T01_NumConexiones > 1) {
+                    echo "DECHA DE LA ULTIMA CONEXION: $oUsuario->T01_FechaHoraUltimaConexion <br>";
+                }
+
+                $consulta2Exe = $miDB->prepare($consulta2);
+                $consulta2Exe->execute();
+                echo "HAS INICIADO SESION $oUsuario->T01_NumConexiones veces";
+            }
         }
     } catch (PDOException $excepcion) {
         echo $excepcion->getMessage();
@@ -31,8 +46,6 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
         unset($miDB);
     }
 }
-    
-
 ?>
 <!DOCTYPE html>
 
@@ -123,10 +136,6 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
             <a href = "../indexProyectoTema5.php"><img src = "../doc/atras.png" onmouseover = "this.width = 50;" onmouseout = "this.width = 39;"width = "39" title = "linkedin" class = ".icono_cv" /></a>
             <ins> <h1> Ejercicio2. Desarrollo de un control de acceso con identificación del usuario basado en la función header() y en el uso de una tabla “Usuario” de la base de datos. (PDO).</h1></ins>
 
-<?php
-echo "<p>Te has loggeado como:  {$_SERVER['PHP_AUTH_USER']}.</p>";
-echo "<p>Esta es tu password: {$_SERVER['PHP_AUTH_PW']}</p>";
-?>
         </main>
         <footer>
             <a href="/../index.php" style="text-decoration:none">
