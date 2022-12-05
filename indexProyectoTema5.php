@@ -156,10 +156,9 @@
             <!-- AQUI VAN LAS COLUMNAS -->
             <tr>
                 <th>ENUNCIADO</th>
-                <th>PLAY PDO</th>
-                <th>CÓDIGO PDO</th>
-                <th>PLAY MYSQL</th>
-                <th>CODIGO MYSQL</th>
+                <th>PLAY </th>
+                <th>CÓDIGO </th>
+               
             </tr>
 
             <!-- AQUÍ EL EJERCICIO 0 -->
@@ -185,7 +184,7 @@
                 <td><a href="codigoPHP/ejercicio02.php"><img src="doc/play.png"></a></td>
                 <td><a href="mostrarcodigo/muestraejercicio02.php"><img src="doc/php.png"></a></td>
 
-            <footer>
+<!--            <footer>
                 <a href="/../index.php" style="text-decoration:none">
                     <img src="../doc/home.png" alt="inicio" onmouseover="this.width = 50;this.height = 50;"
                          onmouseout="this.width = 39;this.height = 39;" width="39" title="inicio" />
@@ -202,7 +201,7 @@
                     <img src="/doc/link2.png" alt="linkedin" onmouseover="this.width = 50;" onmouseout="this.width = 39;"
                          width="39" title="linkedin" class="icono_link" />
                 </a>
-            </footer>
+            </footer>-->
     </body>
 
 
