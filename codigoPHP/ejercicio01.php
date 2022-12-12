@@ -1,3 +1,13 @@
+<?php
+require_once '../config/confDBPDO.php';
+
+if (!isset($_SERVER['PHP_AUTH_USER']) || $_SERVER['PHP_AUTH_USER'] != 'admin' || $_SERVER['PHP_AUTH_PW'] != 'paso') {
+    header('WWW-Authenticate: Basic realm="Dominio De Alex"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'NO SE HA INICIADO SESION';
+    exit;
+} else {
+    ?>
 <!DOCTYPE html>
 
 <html>
@@ -87,21 +97,11 @@
             <a href="../indexProyectoTema5.php"><img src="../doc/atras.png" onmouseover="this.width = 50;" onmouseout="this.width = 39;"width="39" title="linkedin" class=".icono_cv" /></a>
             <ins> <h1> Ejercicio1. Desarrollo de un control de acceso con identificación del usuario basado en la función header(). </h1></ins>
 
-
-
             <?php
-        
-            if (!isset($_SERVER['PHP_AUTH_USER'])|| $_SERVER['PHP_AUTH_USER'] != 'admin' || $_SERVER['PHP_AUTH_PW'] != 'paso') {
-                header('WWW-Authenticate: Basic realm="Dominio De Alex"');
-                header('HTTP/1.0 401 Unauthorized');
-                echo 'NO SE HA INICIADO SESION';
-                exit;
-            } else {
-
-                echo "<p>Te has loggeado como:  {$_SERVER['PHP_AUTH_USER']}.</p>";
-                echo "<p>Esta es tu password:  {$_SERVER['PHP_AUTH_PW']} </p>";
-            }
+            echo "<p>Te has loggeado como:  {$_SERVER['PHP_AUTH_USER']}.</p>";
+            echo "<p>Esta es tu password:  {$_SERVER['PHP_AUTH_PW']} </p>";
             ?>
+
         </main>
         <footer>
             <a href="/../index.php" style="text-decoration:none">
@@ -122,3 +122,4 @@
     </body>
 
 </html>
+<?php }?>

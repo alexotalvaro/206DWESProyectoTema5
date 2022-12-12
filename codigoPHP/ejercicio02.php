@@ -1,12 +1,5 @@
 <?php
-//define("dsn", 'mysql:dbname=DB206DWESProyectoTema5;host=192.168.1.214');
-//define("usuario", 'user206DWESTema5');
-//define("contra", 'paso');
-
-define("dsn", 'mysql:dbname=DB206DWESProyectoTema5;host=192.168.20.19');
-define("usuario", 'user206DWESTema5');
-define("contra", 'paso');
-
+require_once '../config/confDBPDO.php';
 $entradaOK = true;
 //pedimos al usuario, un user y un password
 if (!isset($_SERVER['PHP_AUTH_USER'])) {
@@ -18,7 +11,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
 
 //Si ha introducido un usuario y un password, lo comparamos con la base de datos.
     $consultaUsuario = "SELECT * FROM T01_Usuario WHERE T01_CodUsuario='$_SERVER[PHP_AUTH_USER]'";
-    //$consultaPass = "SELECT * FROM T01_Usuario WHERE T01_Password='sha2($_SERVER[PHP_AUTH_PW]])'";
+    
     $user = $_SERVER['PHP_AUTH_USER'];
     $pass = $_SERVER['PHP_AUTH_PW'];
   
@@ -28,15 +21,16 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
 
         
         $consultaUsuarioExe = $miDB->prepare($consultaUsuario);
-        //$consultaPassExe = $miDB->prepare($consultaPass);
+    
         
         $consultaUsuarioExe->execute();
-       // $consultaPassExe->execute();
+   
         
         $oUsuario = $consultaUsuarioExe->fetchObject();
-        //$oUsuario2 = $consultaPassExe->fetchObject();
+   
 
         if ($oUsuario && $oUsuario->T01_Password== hash('sha256',($_SERVER['PHP_AUTH_USER'].$_SERVER['PHP_AUTH_PW']))) {
+            session_start();
             ?>
 
 
@@ -54,71 +48,9 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
                     <link href = "https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&display=swap" rel = "stylesheet">
                     <link href = "https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel = "stylesheet">
                     <link href = "https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel = "stylesheet">
-                    <link href="../weboroot/css/estilos.css" rel="stylesheet" type="text/css">
+                    <link href= "../webroot/css/estilos.css" rel="stylesheet" type="text/css">
 
-                    <style>
-                        body{
-                            background-color: mistyrose;
-                        }
-                        h1{
-
-                            font-family: 'Quicksand', sans-serif;
-
-                        }
-
-                        table {
-
-                            border-collapse: none;
-
-                            font-family: 'Arial'
-                        }
-
-
-
-                        main{
-
-                            margin-bottom: 19vh;
-                        }
-
-                        tr td {
-                            border: 1px solid black;
-                            padding-left: 15px;
-                        }
-
-                        footer {
-
-                            background-color: grey;
-                            position: fixed;
-                            width: 100%;
-                            height: 5vh;
-                            font-size: 1em;
-                            font-family: 'Chela One', cursive;
-                            text-align: center;
-                            padding-top: 20px;
-                            padding-bottom: 30px;
-                            bottom: 0;
-                            left: 0px;
-
-                        }
-
-                        strong {
-
-                            font-size: 16pt;
-                        }
-
-                        .icono_cv {
-                            position: absolute;
-                            top: 25px;
-                            left: 100px;
-                        }
-
-                        .icono_link {
-                            position: absolute;
-                            top: 25px;
-                            right: 200px;
-                        }
-
-                    </style>
+                   
                 </head>
                 <body>
                     <main>

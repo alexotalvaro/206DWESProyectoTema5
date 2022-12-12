@@ -96,15 +96,15 @@
             <th> SCRIPTS SQL DESARROLLO</th>
             <tr>
                 <td>CREAR BBDD</td>
-                <td><a href="../206DWESProyectoTema5/codigoPHP/crearBD.php"><img src="doc/play.png"></a></td>
+                <td><a href="../206DWESProyectoTema5/codigoPHP/crearBD.php"><img src="doc/php.png"></a></td>
             </tr>
             <tr>
                 <td>BORRAR BBDD</td>
-                <td><a href="../206DWESProyectoTema5/codigoPHP/borrarBD.php"><img src="doc/play.png"></a></td>
+                <td><a href="../206DWESProyectoTema5/codigoPHP/borrarBD.php"><img src="doc/php.png"></a></td>
             </tr>
             <tr>
                 <td>INSERTAR DATOS EN BBDD</td>
-                <td><a href="../206DWESProyectoTema5/codigoPHP/insertarBD.php"><img src="doc/play.png"></a></td>
+                <td><a href="../206DWESProyectoTema5/codigoPHP/insertarBD.php"><img src="doc/php.png"></a></td>
             </tr>
 
         </table>
@@ -113,15 +113,15 @@
             <th> SCRIPTS SQL EXPLOTACION</th>
             <tr>
                 <td>CREAR BBDD</td>
-                <td><a href="../206DWESProyectoTema5/codigoPHP/crearBD1-1.php"><img src="doc/play.png"></a></td>
+                <td><a href="../206DWESProyectoTema5/codigoPHP/crearBD1-1.php"><img src="doc/php.png"></a></td>
             </tr>
             <tr>
                 <td>BORRAR BBDD</td>
-                <td><a href="../206DWESProyectoTema5/codigoPHP/borrarBD1-1.php"><img src="doc/play.png"></a></td>
+                <td><a href="../206DWESProyectoTema5/codigoPHP/borrarBD1-1.php"><img src="doc/php.png"></a></td>
             </tr>
             <tr>
                 <td>INSERTAR DATOS EN BBDD</td>
-                <td><a href="../206DWESProyectoTema5/codigoPHP/insertarBD1-1.php"><img src="doc/play.png"></a></td>
+                <td><a href="../206DWESProyectoTema5/codigoPHP/insertarBD1-1.php"><img src="doc/php.png"></a></td>
             </tr>
         </table>
         <br>
@@ -129,15 +129,15 @@
             <th>CONEXIONES:</th>
             <tr>
                 <td>DESARROLLO</td>
-                <td><a href="../206DWESProyectoTema5/mostrarcodigo/mostrarConexionED.php"><img src="doc/play.png"></a></td>
+                <td><a href="../206DWESProyectoTema5/mostrarcodigo/mostrarConexionED.php"><img src="doc/php.png"></a></td>
             </tr>
             <tr>
                 <td>EXPLOTACIÓN</td>
-                <td><a href="../206DWESProyectoTema5/mostrarcodigo/mostrarConexionEX.php"><img src="doc/play.png"></a></td>
+                <td><a href="../206DWESProyectoTema5/mostrarcodigo/mostrarConexionEX.php"><img src="doc/php.png"></a></td>
             </tr>
             <tr>
                 <td>CASA</td>
-                <td><a href="../206DWESProyectoTema5/mostrarcodigo/mostrarConexionCA.php"><img src="doc/play.png"></a></td>
+                <td><a href="../206DWESProyectoTema5/mostrarcodigo/mostrarConexionCA.php"><img src="doc/php.png"></a></td>
             </tr>
 
         </table>
@@ -146,7 +146,7 @@
             <th> LIBRERÍA DE VALIDACIÓN </th>
             <tr>
                 <td>LIBRERIA DE VALIDACIÓN</td>
-                <td><a href="../206DWESProyectoTema5/codigoPHP/mostrarLibreria.php"><img src="doc/play.png"></a></td>
+                <td><a href="../206DWESProyectoTema5/codigoPHP/mostrarLibreria.php"><img src="doc/php.png"></a></td>
             </tr>
 
         </table>

@@ -6,25 +6,21 @@
 
 use dbs9174059;
 
-
-
 /*CREACION DE LA TABLA CON SUS RESPECTIVOS CAMPOS*/
-create table if not exists T01_Usuario (
- T01_CodUsuario varchar(8) Primary Key,
- T01_Password varchar(8),
- T01_DescUsuario varchar(255),
- T01_FechaHoraUltimaConexion timestamp(6),
- T01_NumConexiones int(255),
- T01_Perfil varchar(8),
- T01_ImagenUsuario varchar(100);
+create table if not exists T01_Usuario(
+    T01_CodUsuario varchar(8) primary key not null,
+    T01_Password varchar(255) not null,
+    T01_DescUsuario varchar(255) not null,
+    T01_NumConexiones int not null default 1,
+    T01_FechaHoraUltimaConexion datetime not null,
+    T01_Perfil enum('administrador','usuario') default 'usuario',
+    T01_ImagenUsuario MEDIUMBLOB null)engine=Innodb;
  
 
-
 /*CREACION DE LA TABLA CON SUS RESPECTIVOS CAMPOS*/
-create table if not exists T02_Departamento (
-  CodDepartamento varchar(3) Primary key,
-  DescDepartamento varchar (255),
-  fechaAlta timestamp(6),
-  fechaBaja timestamp(6),
-  volumenNegocio float);
+create table T02_Departamento(T02_CodDepartamento char(3) primary key,
+    T02_DescDepartamento varchar(255) not null,
+    T02_FechaCreacionDepartamento int not null,
+    T02_VolumenNegocio float not null,
+    T02_FechaBajaDepartamento int null)engine=Innodb;
 
